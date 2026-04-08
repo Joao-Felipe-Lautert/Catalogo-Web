@@ -1,0 +1,287 @@
+/* Importando Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+
+/* Reset e estilos gerais */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  background-color: #f5f5f5;
+  color: #333;
+}
+
+/* Header */
+header {
+  background-color: #ffffff;
+  border-bottom: 1px solid #e0e0e0;
+  padding: 30px 20px;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+h1 {
+  font-family: "Inter", sans-serif;
+  font-weight: 700;
+  font-size: 32px;
+  color: #1a1a1a;
+  letter-spacing: -0.5px;
+}
+
+/* Grid de produtos */
+.grid-produtos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  padding: 40px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Cartões de produto */
+.card-produto {
+  background: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  transition: all 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.card-produto:hover {
+  border-color: #d0d0d0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  transform: translateY(-4px);
+}
+
+/* Imagem do produto */
+.card-produto img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 6px;
+  margin-bottom: 16px;
+  align-self: center; /* Alinha a imagem ao centro horizontalmente */
+  display: block; /* Faz com que o bloco seja centralizado */
+  margin-left: auto; /* Alinha a imagem à esquerda automaticamente */
+  margin-right: auto; /* Alinha a imagem à direita automaticamente */
+}
+
+/* Nome, preço e categoria */
+.card-produto h3 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin: 12px 0 8px;
+  line-height: 1.4;
+  flex-grow: 1;
+}
+
+.card-produto p {
+  margin: 6px 0;
+  font-size: 13px;
+  color: #666;
+}
+
+.card-produto .categoria {
+  font-size: 12px;
+  color: #999;
+  font-style: italic;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  margin-bottom: 12px;
+}
+
+.card-produto .preco-destaque {
+  font-size: 20px;
+  font-weight: 700;
+  color: #2c3e50;
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid #f0f0f0;
+}
+
+/* Footer */
+footer {
+  background-color: #ffffff;
+  padding: 24px 20px;
+  text-align: center;
+  border-top: 1px solid #e0e0e0;
+  margin-top: 40px;
+}
+
+a {
+  text-decoration: none;
+  color: #0066cc;
+  transition: color 0.2s ease;
+}
+
+footer a {
+  display: inline-block;
+  background-color: #0066cc;
+  color: white;
+  padding: 10px 24px;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 14px;
+  transition: background-color 0.2s ease;
+}
+
+footer a:hover {
+  background-color: #0052a3;
+}
+
+/* Estilos para página de login */
+body.login-body {
+  background-color: #f5f5f5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  font-family: "Inter", sans-serif;
+  padding: 20px;
+}
+
+.login-container {
+  background: white;
+  padding: 40px;
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  width: 100%;
+  max-width: 380px;
+}
+
+.login-container h2 {
+  font-size: 24px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 28px;
+  text-align: center;
+}
+
+.login-container input {
+  width: 100%;
+  padding: 11px 12px;
+  margin-bottom: 14px;
+  border: 1px solid #d0d0d0;
+  border-radius: 4px;
+  font-size: 14px;
+  font-family: "Inter", sans-serif;
+  transition: border-color 0.2s ease;
+  background-color: #fafafa;
+}
+
+.login-container input:focus {
+  outline: none;
+  border-color: #0066cc;
+  background-color: white;
+}
+
+.senha-grupo {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.senha-grupo input {
+  flex: 1;
+  margin-bottom: 0;
+}
+
+#btn-olho {
+  padding: 11px 12px;
+  background-color: #fafafa;
+  border: 1px solid #d0d0d0;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.2s ease;
+  min-width: 48px;
+}
+
+#btn-olho:hover {
+  background-color: #f0f0f0;
+}
+
+#btn-entrar {
+  width: 100%;
+  padding: 11px;
+  background-color: #0066cc;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  margin-bottom: 14px;
+}
+
+#btn-entrar:hover:not(:disabled) {
+  background-color: #0052a3;
+}
+
+#btn-entrar:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+#mensagem {
+  text-align: center;
+  font-size: 13px;
+  font-weight: 500;
+  min-height: 18px;
+  margin-top: 8px;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 26px;
+  }
+
+  .grid-produtos {
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 18px;
+    padding: 24px 16px;
+  }
+
+  header {
+    padding: 24px 16px;
+  }
+
+  .login-container {
+    margin: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 22px;
+  }
+
+  .grid-produtos {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    padding: 20px;
+  }
+
+  .card-produto h3 {
+    font-size: 15px;
+  }
+
+  .card-produto .preco-destaque {
+    font-size: 18px;
+  }
+
+  .login-container {
+    padding: 28px 20px;
+  }
+}
