@@ -6,6 +6,9 @@ const supabaseKey =
 // Inicia a conexão
 const banco = window.supabase.createClient(supabaseUrl, supabaseKey);
 
+// Tenta carregar o carrinho salvo no navegador, ou começa um vazio []
+let carrinho = JSON.parse(localStorage.getItem("meu_carrinho")) || [];
+
 // 2. FUNÇÃO PARA BUSCAR E DESENHAR OS PRODUTOS
 async function carregarCatalogo() {
   // Faz um SELECT * FROM produtos na nuvem
@@ -34,6 +37,9 @@ async function carregarCatalogo() {
         <h3>${item.nome}</h3>
         <p>${item.categoria}</p>
         <p class="preco-destaque">${precoFormatado}</p>
+        <button onclick="adicionarAoCarrinho('${item.nome}', ${item.preco})">
+          Adicionar ao Carrinho
+        </button>
     `;
     vitrine.appendChild(div);
   });
@@ -41,3 +47,55 @@ async function carregarCatalogo() {
 
 // Roda a função assim que o site abrir
 carregarCatalogo();
+
+// 1. ADICIONAR ITEM
+function adicionarAoCarrinho(nome, preco) {
+  const item = { nome, preco };
+  carrinho.push(item); // Adiciona na lista
+  atualizarCarrinho(); // Atualiza a tela
+}
+
+// 2. REMOVER ITEM
+function removerDoCarrinho(index) {
+  // O splice(index, 1) diz: "Vá até esta posição e remova 1 item"
+  carrinho.splice(index, 1);
+  atualizarCarrinho(); // Atualiza a tela e o LocalStorage
+}
+
+// 3. ATUALIZAR A TELA E O LOCALSTORAGE
+function atualizarCarrinho() {
+  const listaHtml = document.getElementById("lista-carrinho");
+  const totalHtml = document.getElementById("valor-total");
+
+  listaHtml.innerHTML = ""; // Limpa a lista visual
+  let somaTotal = 0;
+
+  carrinho.forEach((item, index) => {
+    somaTotal += item.preco;
+
+    // Criamos o item da lista e passamos o INDEX para o clique do X
+    listaHtml.innerHTML += `
+      <li>
+        ${item.nome} - R$ ${item.preco.toFixed(2)}
+        <span style="cursor:pointer" onclick="removerDoCarrinho(${index})"> ❌</span>
+      </li>`;
+  });
+
+  // Atualiza o valor total na tela
+  totalHtml.innerText = somaTotal.toLocaleString("pt-BR", {
+    style: "currency",
+    currency: "BRL",
+  });
+
+  // SALVA A LISTA NO NAVEGADOR (LocalStorage)
+  localStorage.setItem("meu_carrinho", JSON.stringify(carrinho));
+}
+
+// 4. LIMPAR TUDO
+function esvaziarCarrinho() {
+  carrinho = [];
+  atualizarCarrinho();
+}
+
+// Inicializa o carrinho ao carregar a página
+atualizarCarrinho();

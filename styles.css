@@ -1,6 +1,3 @@
-/* Importando Google Fonts */
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
-
 /* Reset e estilos gerais */
 * {
   margin: 0;
@@ -12,6 +9,7 @@ body {
   font-family: "Inter", sans-serif;
   background-color: #f5f5f5;
   color: #333;
+  line-height: 1.6;
 }
 
 /* Header */
@@ -52,7 +50,8 @@ h1 {
   transition: all 0.2s ease;
   display: flex;
   flex-direction: column;
-  height: 100%;
+  justify-content: space-between; /* Garante que o conteúdo não fique desalinhado */
+  height: 500px; /* Define um tamanho fixo para o card */
 }
 
 .card-produto:hover {
@@ -67,10 +66,9 @@ h1 {
   height: auto;
   border-radius: 6px;
   margin-bottom: 16px;
-  align-self: center; /* Alinha a imagem ao centro horizontalmente */
-  display: block; /* Faz com que o bloco seja centralizado */
-  margin-left: auto; /* Alinha a imagem à esquerda automaticamente */
-  margin-right: auto; /* Alinha a imagem à direita automaticamente */
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* Nome, preço e categoria */
@@ -80,7 +78,6 @@ h1 {
   color: #1a1a1a;
   margin: 12px 0 8px;
   line-height: 1.4;
-  flex-grow: 1;
 }
 
 .card-produto p {
@@ -107,6 +104,81 @@ h1 {
   border-top: 1px solid #f0f0f0;
 }
 
+/* Botões */
+button {
+  background-color: #0066cc;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+  transition: background-color 0.2s ease;
+  margin-top: 16px;
+}
+
+button:hover {
+  background-color: #0052a3;
+}
+
+/* Carrinho */
+.carrinho-container {
+  background-color: white;
+  padding: 24px;
+  margin-top: 40px;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+}
+
+.carrinho-container h2 {
+  font-size: 24px;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 16px;
+}
+
+#lista-carrinho {
+  list-style-type: none;
+  padding: 0;
+}
+
+#lista-carrinho li {
+  font-size: 16px;
+  padding: 8px 0;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+#lista-carrinho li span {
+  color: #e74c3c;
+  cursor: pointer;
+  font-size: 18px;
+  margin-left: 10px;
+}
+
+.carrinho-total {
+  margin-top: 16px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+}
+
+button.btn-finalizar {
+  background-color: #2ecc71;
+}
+
+button.btn-finalizar:hover {
+  background-color: #27ae60;
+}
+
+button.btn-limpar {
+  background-color: #e74c3c;
+}
+
+button.btn-limpar:hover {
+  background-color: #c0392b;
+}
+
 /* Footer */
 footer {
   background-color: #ffffff;
@@ -116,25 +188,14 @@ footer {
   margin-top: 40px;
 }
 
-a {
+footer a {
   text-decoration: none;
   color: #0066cc;
   transition: color 0.2s ease;
 }
 
-footer a {
-  display: inline-block;
-  background-color: #0066cc;
-  color: white;
-  padding: 10px 24px;
-  border-radius: 4px;
-  font-weight: 600;
-  font-size: 14px;
-  transition: background-color 0.2s ease;
-}
-
 footer a:hover {
-  background-color: #0052a3;
+  color: #0052a3;
 }
 
 /* Estilos para página de login */
